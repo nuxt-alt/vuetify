@@ -1,6 +1,6 @@
 > [Vuetify 3](https://next.vuetifyjs.com) module for [Nuxt](https://nuxt.com)
 
-## Infos
+## Info
 An alternative module for setting up Vueitfy 3 with nuxt.
 
 ## Setup
