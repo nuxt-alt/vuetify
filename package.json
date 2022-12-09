@@ -1,0 +1,52 @@
+{
+    "name": "@nuxt-alt/vuetify",
+    "version": "1.0.6",
+    "description": "An alternative module for setting up Vueitfy 3 with nuxt.",
+    "homepage": "https://github.com/nuxt-alt/vuetify",
+    "author": "Teranode",
+    "keywords": [
+        "nuxt",
+        "nuxtjs",
+        "nuxt-module",
+        "nuxt-plugin",
+        "nuxt-module-alternatives",
+        "vuetify"
+    ],
+    "license": "MIT",
+    "type": "module",
+    "main": "./dist/module.cjs",
+    "module": "./dist/module.mjs",
+    "types": "./dist/types.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "dev": "nuxi dev playground",
+        "dev:build": "nuxi build playground",
+        "prepack": "unbuild",
+        "dev:prepare": "unbuild --stub && nuxi prepare playground"
+    },
+    "dependencies": {
+        "@nuxt/kit": "^3.0.0",
+        "sass": "^1.56.1",
+        "sass-loader": "^13.2.0",
+        "vite-plugin-vuetify": "^1.0.0",
+        "vuetify": "^3.0.2"
+    },
+    "devDependencies": {
+        "unbuild": "latest",
+        "nuxt": "^3.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nuxt-alt/vuetify.git",
+        "directory": "@nuxt-alt/vuetify"
+    },
+    "bugs": {
+        "url": "ttps://github.com/nuxt-alt/vuetify/issues"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "packageManager": "yarn@3.3.0"
+}
