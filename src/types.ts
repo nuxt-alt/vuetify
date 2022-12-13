@@ -10,14 +10,18 @@ interface Options {
     stylesTimeout?: number;
 }
 
+export interface NuxtVuetifyOptions extends Omit<VuetifyOptions, 'blueprint'> {
+    blueprint: 'md1' | 'md2' | 'md3'
+}
+
 export interface ModuleOptions {
-    vuetifyOptions?: VuetifyOptions
+    vuetifyOptions?: NuxtVuetifyOptions
     pluginOptions?: Options
 }
 
 declare module '#app' {
     interface NuxtApp {
-        $vuetify: VuetifyOptions;
+        $vuetify: NuxtVuetifyOptions;
     }
 }
 

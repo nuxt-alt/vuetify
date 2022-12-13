@@ -1,7 +1,7 @@
 import type { ModuleOptions } from './types';
 import type { Nuxt } from '@nuxt/schema'
 import { name, version } from '../package.json';
-import { defineNuxtModule, addPluginTemplate, createResolver, addImports, addTemplate } from '@nuxt/kit';
+import { defineNuxtModule, addPluginTemplate, createResolver, addImports } from '@nuxt/kit';
 import vuetify from 'vite-plugin-vuetify'
 import { defu } from 'defu'
 
@@ -45,7 +45,7 @@ export default defineNuxtModule({
             // Vuetify plugin configuration
             config.plugins = [
                 ...(config.plugins || []),
-                vuetify(options.pluginOptions),
+                vuetify(options.pluginOptions) as typeof config.plugins,
             ]
 
             config.define = {
@@ -74,9 +74,7 @@ export default defineNuxtModule({
         addPluginTemplate({
             src: resolve('./runtime/templates/plugin.mjs'),
             filename: 'vuetify.plugin.mjs',
-            options: {
-                options: options.vuetifyOptions
-            }
+            options: options.vuetifyOptions
         })
 
         // Runtime
