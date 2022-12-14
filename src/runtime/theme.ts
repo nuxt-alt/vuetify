@@ -336,7 +336,6 @@ export function createTheme(options?: ThemeOptions): ThemeInstance & { install: 
 
                 if (typeof document !== 'undefined' && !styleEl) {
                     const el = document.createElement('style')
-                    el.type = 'text/css'
                     el.id = 'vuetify-theme-stylesheet'
                     if (parsedOptions.cspNonce) el.setAttribute('nonce', parsedOptions.cspNonce)
 
