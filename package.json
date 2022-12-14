@@ -1,6 +1,6 @@
 {
     "name": "@nuxt-alt/vuetify",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "An alternative module for setting up Vueitfy 3 with nuxt.",
     "homepage": "https://github.com/nuxt-alt/vuetify",
     "author": "Teranode",
@@ -28,10 +28,9 @@
     },
     "dependencies": {
         "@nuxt/kit": "^3.0.0",
-        "sass": "^1.56.1",
-        "sass-loader": "^13.2.0",
-        "vite-plugin-vuetify": "^1.0.0",
-        "vuetify": "^3.0.2"
+        "sass": "^1.56.2",
+        "vite-plugin-vuetify": "^1.0.1",
+        "vuetify": "^3.0.5"
     },
     "devDependencies": {
         "unbuild": "latest",

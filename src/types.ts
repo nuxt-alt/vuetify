@@ -1,4 +1,4 @@
-import * as NuxtSchema from '@nuxt/schema';
+import { NuxtModule } from '@nuxt/schema';
 import type { VuetifyOptions } from 'vuetify';
 
 interface Options {
@@ -34,6 +34,6 @@ declare module '@nuxt/schema' {
     }
 }
 
-declare const NuxtVuetify: NuxtSchema.NuxtModule<ModuleOptions>
+declare const NuxtVuetify: NuxtModule<ModuleOptions>
 
 export default NuxtVuetify
