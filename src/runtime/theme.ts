@@ -7,19 +7,20 @@ import {
     ref,
     watch,
 } from 'vue'
+
 import {
-    parseColor,
-    colorToRGB,
     createRange,
     darken,
     getCurrentInstance,
     getLuma,
     IN_BROWSER,
-    intToHex,
     lighten,
     mergeDeep,
+    parseColor,
     propsFactory,
+    RGBtoHex,
 } from 'vuetify/lib/util/index.mjs'
+
 import { APCAcontrast } from 'vuetify/lib/util/color/APCA.mjs'
 
 // Types
@@ -34,6 +35,7 @@ export type ThemeOptions = false | {
     variations?: false | VariationsOptions
     themes?: Record<string, ThemeDefinition>
 }
+
 export type ThemeDefinition = DeepPartial<InternalThemeDefinition>
 
 interface InternalThemeOptions {
@@ -224,7 +226,7 @@ export function createTheme(options?: ThemeOptions): ThemeInstance & { install: 
                     for (const variation of (['lighten', 'darken'] as const)) {
                         const fn = variation === 'lighten' ? lighten : darken
                         for (const amount of createRange(parsedOptions.variations[variation], 1)) {
-                            theme.colors[`${name}-${variation}-${amount}`] = intToHex(fn(parseColor(color), amount))
+                            theme.colors[`${name}-${variation}-${amount}`] = RGBtoHex(fn(parseColor(color), amount))
                         }
                     }
                 }
@@ -236,8 +238,8 @@ export function createTheme(options?: ThemeOptions): ThemeInstance & { install: 
                 const onColor = `on-${color}` as keyof OnColors
                 const colorVal = parseColor(theme.colors[color]!)
 
-                const blackContrast = Math.abs(APCAcontrast(0, colorVal))
-                const whiteContrast = Math.abs(APCAcontrast(0xffffff, colorVal))
+                const blackContrast = Math.abs(APCAcontrast(parseColor(0), colorVal))
+                const whiteContrast = Math.abs(APCAcontrast(parseColor(0xffffff), colorVal))
 
                 // TODO: warn about poor color selections
                 // const contrastAsText = Math.abs(APCAcontrast(colorVal, colorToInt(theme.colors.background)))
@@ -272,7 +274,7 @@ export function createTheme(options?: ThemeOptions): ThemeInstance & { install: 
                 ...genCssVariables(theme),
                 ...Object.keys(variables).map(key => {
                     const value = variables[key]
-                    const color = typeof value === 'string' && value.startsWith('#') ? colorToRGB(value) : undefined
+                    const color = typeof value === 'string' && value.startsWith('#') ? parseColor(value) : undefined
                     const rgb = color ? `${color.r}, ${color.g}, ${color.b}` : undefined
 
                     return `--v-${key}: ${rgb ?? value}`
@@ -334,6 +336,7 @@ export function createTheme(options?: ThemeOptions): ThemeInstance & { install: 
 
                 if (typeof document !== 'undefined' && !styleEl) {
                     const el = document.createElement('style')
+                    el.type = 'text/css'
                     el.id = 'vuetify-theme-stylesheet'
                     if (parsedOptions.cspNonce) el.setAttribute('nonce', parsedOptions.cspNonce)
 
@@ -412,7 +415,7 @@ function genCssVariables(theme: InternalThemeDefinition) {
 
     const variables: string[] = []
     for (const [key, value] of Object.entries(theme.colors)) {
-        const rgb = colorToRGB(value)
+        const rgb = parseColor(value)
         variables.push(`--v-theme-${key}: ${rgb.r},${rgb.g},${rgb.b}`)
         if (!key.startsWith('on-')) {
             variables.push(`--v-theme-${key}-overlay-multiplier: ${getLuma(value) > 0.18 ? lightOverlay : darkOverlay}`)
