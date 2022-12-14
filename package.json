@@ -28,10 +28,10 @@
     },
     "dependencies": {
         "@nuxt/kit": "^3.0.0",
-        "sass": "^1.56.1",
+        "sass": "^1.56.2",
         "sass-loader": "^13.2.0",
-        "vite-plugin-vuetify": "^1.0.0",
-        "vuetify": "^3.0.2"
+        "vite-plugin-vuetify": "^1.0.1",
+        "vuetify": "^3.0.5"
     },
     "devDependencies": {
         "unbuild": "latest",

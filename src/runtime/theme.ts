@@ -8,7 +8,7 @@ import {
     watch,
 } from 'vue'
 import {
-    colorToInt,
+    parseColor,
     colorToRGB,
     createRange,
     darken,
@@ -224,7 +224,7 @@ export function createTheme(options?: ThemeOptions): ThemeInstance & { install: 
                     for (const variation of (['lighten', 'darken'] as const)) {
                         const fn = variation === 'lighten' ? lighten : darken
                         for (const amount of createRange(parsedOptions.variations[variation], 1)) {
-                            theme.colors[`${name}-${variation}-${amount}`] = intToHex(fn(colorToInt(color), amount))
+                            theme.colors[`${name}-${variation}-${amount}`] = intToHex(fn(parseColor(color), amount))
                         }
                     }
                 }
@@ -234,7 +234,7 @@ export function createTheme(options?: ThemeOptions): ThemeInstance & { install: 
                 if (/^on-[a-z]/.test(color) || theme.colors[`on-${color}`]) continue
 
                 const onColor = `on-${color}` as keyof OnColors
-                const colorVal = colorToInt(theme.colors[color]!)
+                const colorVal = parseColor(theme.colors[color]!)
 
                 const blackContrast = Math.abs(APCAcontrast(0, colorVal))
                 const whiteContrast = Math.abs(APCAcontrast(0xffffff, colorVal))
@@ -311,9 +311,10 @@ export function createTheme(options?: ThemeOptions): ThemeInstance & { install: 
                     const style = {
                         children: styles.value,
                         id: 'vuetify-theme-stylesheet',
+                        nonce: '',
                     }
                     if (parsedOptions.cspNonce) style['nonce'] = parsedOptions.cspNonce
-    
+
                     return { style: [style] }
                 }))
             }
