@@ -30,7 +30,7 @@ export default defineNuxtModule({
         if (typeof options.pluginOptions?.styles === 'string' && ['sass', 'expose'].includes(options.pluginOptions.styles)) {
             nuxt.options.css.unshift('vuetify/styles/main.sass')
         }
-        else if (options.pluginOptions?.styles === true) {
+        else if (options.pluginOptions?.styles === true || typeof options.pluginOptions?.styles === 'object') {
             nuxt.options.css.unshift('vuetify/styles')
         }
 
@@ -38,14 +38,12 @@ export default defineNuxtModule({
         nuxt.options.build.transpile.push(CONFIG_KEY)
 
         nuxt.hook('vite:extendConfig', (config) => {
-            config.optimizeDeps = defu(config.optimizeDeps, {
-                exclude: ['vuetify']
-            })
+            config.optimizeDeps = defu(config.optimizeDeps, { exclude: ['vuetify'] })
 
             // Vuetify plugin configuration
             config.plugins = [
                 ...(config.plugins || []),
-                vuetify(options.pluginOptions) as typeof config.plugins,
+                vuetify(options.pluginOptions),
             ]
 
             config.define = {
@@ -78,8 +76,7 @@ export default defineNuxtModule({
         })
 
         // Runtime
-        const runtime = resolve('./runtime/vuetify');
-        nuxt.options.alias['#vuetify'] = runtime;
+        nuxt.options.alias['#vuetify'] = resolve('./runtime/vuetify');
 
         // vuetify-specific composables
         addImports([
