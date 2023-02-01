@@ -1,7 +1,7 @@
 {
     "name": "@nuxt-alt/vuetify",
     "version": "1.0.10",
-    "description": "An alternative module for setting up Vueitfy 3 with nuxt.",
+    "description": "An alternative module for setting up Vuetify 3 with nuxt.",
     "homepage": "https://github.com/nuxt-alt/vuetify",
     "author": "Teranode",
     "keywords": [
