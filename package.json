@@ -27,14 +27,14 @@
         "dev:prepare": "unbuild --stub && nuxi prepare playground"
     },
     "dependencies": {
-        "@nuxt/kit": "^3.0.0",
-        "sass": "^1.56.2",
-        "vite-plugin-vuetify": "^1.0.1",
-        "vuetify": "^3.0.5"
+        "@nuxt/kit": "^3.1.1",
+        "sass": "^1.58.0",
+        "vite-plugin-vuetify": "^1.0.2",
+        "vuetify": "^3.1.3"
     },
     "devDependencies": {
         "unbuild": "latest",
-        "nuxt": "^3.0.0"
+        "nuxt": "^3.1.1"
     },
     "repository": {
         "type": "git",
@@ -42,7 +42,7 @@
         "directory": "@nuxt-alt/vuetify"
     },
     "bugs": {
-        "url": "ttps://github.com/nuxt-alt/vuetify/issues"
+        "url": "https://github.com/nuxt-alt/vuetify/issues"
     },
     "publishConfig": {
         "access": "public"
