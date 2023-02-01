@@ -11,10 +11,7 @@ export default defineNuxtModule({
     meta: {
         name,
         version,
-        configKey: CONFIG_KEY,
-        compatibility: {
-            nuxt: '^3.0.0'
-        }
+        configKey: CONFIG_KEY
     },
     defaults: {
         vuetifyOptions: {},
