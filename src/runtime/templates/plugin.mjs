@@ -1,5 +1,5 @@
 import { defineNuxtPlugin } from '#imports';
-import { createVuetify } from '#vuetify';
+import { createVuetify } from 'vuetify';
 
 const opts = JSON.parse('<%= JSON.stringify(options) %>')
 

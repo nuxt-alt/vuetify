@@ -73,11 +73,12 @@ export default defineNuxtModule({
         })
 
         // Runtime
-        nuxt.options.alias['#vuetify'] = resolve('./runtime/vuetify');
+        // Todo: Remove in next build and it's remnants
+        //nuxt.options.alias['#vuetify'] = resolve('./runtime/vuetify');
 
         // vuetify-specific composables
         addImports([
-            { from: resolve('./runtime/theme'), name: 'useTheme' },
+            { from: CONFIG_KEY, name: 'useTheme' },
             { from: CONFIG_KEY, name: 'useDisplay' },
             { from: CONFIG_KEY, name: 'useRtl' },
             { from: CONFIG_KEY, name: 'useLocale' },

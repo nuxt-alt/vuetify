@@ -70,4 +70,6 @@ There is a bug with vuetify where custom scss files might not function correctly
 
 #### 2. Theme values not applying & memory leak (Source: https://github.com/vuetifyjs/vuetify/issues/16156)
 
-There's currently a bug with vueuse/head where it's potentially causing a memory leak and also not adapting changes when using the `useTheme` composable. For now, I have made a workaround where the module will be running its own `createVuetify` instance inheriting from vueitfy and making the necissary changes to make it function. Until this is fixed thta will be used instead.
+~~There's currently a bug with vueuse/head where it's potentially causing a memory leak and also not adapting changes when using the `useTheme` composable. For now, I have made a workaround where the module will be running its own `createVuetify` instance inheriting from vueitfy and making the necissary changes to make it function. Until this is fixed thta will be used instead.~~
+
+This should have been fixed in vueitfy's `3.1.6` version.

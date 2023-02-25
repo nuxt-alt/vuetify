@@ -1,6 +1,6 @@
 {
     "name": "@nuxt-alt/vuetify",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "An alternative module for setting up Vuetify 3 with nuxt.",
     "homepage": "https://github.com/nuxt-alt/vuetify",
     "author": "Teranode",
@@ -27,14 +27,14 @@
         "dev:prepare": "unbuild --stub && nuxi prepare playground"
     },
     "dependencies": {
-        "@nuxt/kit": "^3.1.1",
-        "sass": "^1.58.0",
+        "@nuxt/kit": "^3.2.2",
+        "sass": "^1.58.3",
         "vite-plugin-vuetify": "^1.0.2",
-        "vuetify": "^3.0.5"
+        "vuetify": "^3.1.6"
     },
     "devDependencies": {
-        "@types/node": "^18.11.18",
-        "nuxt": "^3.1.1",
+        "@types/node": "^18.14.1",
+        "nuxt": "^3.2.2",
         "unbuild": "latest"
     },
     "repository": {
