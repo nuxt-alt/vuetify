@@ -34,6 +34,7 @@ export default defineNuxtModule({
         // Transpile Vuetify
         nuxt.options.build.transpile.push(CONFIG_KEY)
 
+        // @ts-ignore: not appearing in typescript even though it is there.
         nuxt.hook('vite:configResolved', (config) => {
             config.optimizeDeps = defu(config.optimizeDeps, { exclude: ['vuetify'] })
 
