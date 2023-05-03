@@ -34,7 +34,7 @@ export default defineNuxtModule({
         // Transpile Vuetify
         nuxt.options.build.transpile.push(CONFIG_KEY)
 
-        nuxt.hook('vite:extendConfig', (config) => {
+        nuxt.hook('vite:configResolved', (config) => {
             config.optimizeDeps = defu(config.optimizeDeps, { exclude: ['vuetify'] })
 
             // Vuetify plugin configuration
