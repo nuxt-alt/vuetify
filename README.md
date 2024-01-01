@@ -1,5 +1,8 @@
 > [Vuetify 3](https://next.vuetifyjs.com) module for [Nuxt](https://nuxt.com)
 
+## UNMAINTAINED
+Please consider using another module: [vuetify-nuxt-module](https://github.com/userquin/vuetify-nuxt-module)
+
 ## Info
 An alternative module for setting up Vueitfy 3 with nuxt.
 
